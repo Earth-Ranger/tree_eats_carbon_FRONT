@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5FBF1"
+    tools:context=".Co2CalActivity"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/navi_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/cal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="61dp"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:text="나무에 물 주기"
+            android:textColor="#558B55"
+            android:textSize="22dp" />
+
+        <RelativeLayout
+            android:id="@+id/cal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cal_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/co2_backimg_1"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nanumbarunpenr"
+                android:text="내가 오늘 이동한 거리"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="33dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="이동거리 : 0km"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/d_btn"
+                android:layout_width="87dp"
+                android:layout_height="36dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="145dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="53dp"
+                android:layout_toEndOf="@+id/distance"
+                android:background="@drawable/button_style"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="거리확인"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="86dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="144dp"
+                android:layout_toStartOf="@+id/button2"
+                android:ems="10"
+                android:hint="한글 주소 입력"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:textColorHint="@color/white"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="87dp"
+                android:layout_height="36dp"
+                android:layout_below="@+id/d_btn"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="53dp"
+                android:layout_marginRight="53dp"
+                android:background="@drawable/button_style"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="출발지 확인"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="142dp"
+                android:layout_toStartOf="@+id/button3"
+                android:ems="10"
+                android:hint="한글 주소 입력"
+                android:textColorHint="@color/white"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="87dp"
+                android:layout_height="36dp"
+                android:layout_below="@+id/button2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginRight="52dp"
+                android:background="@drawable/button_style"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="도착지 확인"
+                android:textColor="@color/white" />
+
+
+
+        </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/transport_check"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/cal_layout"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/co2_backimg_2"
+                android:padding="10dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:text="도보/자전거"
+                    android:id="@+id/check1"
+                    android:fontFamily="@font/nanumbarunpenb"/>
+
+                <CheckBox
+                    android:id="@+id/check2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="버스" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="지하철"
+                    android:id="@+id/check3"
+                    android:fontFamily="@font/nanumbarunpenb"/>
+            </LinearLayout>
+
+        <ImageView
+            android:layout_width="299dp"
+            android:layout_height="180dp"
+            android:layout_below="@+id/transport_check"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="90dp"
+            android:src="@drawable/give_water">
+
+        </ImageView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/give_water_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="144dp"
+                    android:layout_marginTop="823dp"
+                    android:layout_marginEnd="146dp"
+                    android:background="#00ff0000"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="물 주기"
+                    android:textColor="#244310"
+                    android:textSize="27dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@color/white">
+        <include
+            layout="@layout/main_navi_drawer"/>
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
