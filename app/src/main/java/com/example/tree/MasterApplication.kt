@@ -2,6 +2,8 @@ package com.example.tree
 
 import android.app.Application
 import android.content.Context
+import com.example.tree.Main.DataModels_Main
+import com.example.tree.Main.RetrofitAPI
 import com.example.tree.login.APIS_login
 import com.example.tree.neighbor.APIS_neighbor
 import com.example.tree.neighbor.APIS_neighbor_add
@@ -20,6 +22,7 @@ class MasterApplication : Application() {
     lateinit var service_login: APIS_login
     lateinit var service_neighbor: APIS_neighbor_add
     lateinit var service_neighbor_list: APIS_neighbor
+    lateinit var service_tree : RetrofitAPI
     //이곳에 추가적인 APIS들 작성해야 함.
 
     override fun onCreate() {
@@ -65,6 +68,7 @@ class MasterApplication : Application() {
         service_login = retrofit.create(APIS_login::class.java)
         service_neighbor = retrofit.create(APIS_neighbor_add::class.java)
         service_neighbor_list = retrofit.create(APIS_neighbor::class.java)
+        service_tree=retrofit.create(RetrofitAPI::class.java)
         //이곳에 다른 APIS들도 작성해야 함.
     }
 

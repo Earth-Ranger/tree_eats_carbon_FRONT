@@ -1,6 +1,7 @@
 package com.example.tree;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -19,13 +20,21 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tree.Main.DataModels_Main;
+import com.example.tree.Main.MainData_response;
 import com.google.android.gms.maps.model.LatLng;
-import com.kansun.earth_ranger.Main.MainTreeActivity;
-import com.kansun.earth_ranger.Main.RetrofitAPI;
+import com.example.tree.Main.MainTreeActivity;
+import com.example.tree.Main.RetrofitAPI;
+
+import org.mozilla.javascript.tools.jsc.Main;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -43,7 +52,8 @@ public class Co2CalActivity extends AppCompatActivity {
     Button btnKor3Loc, btnKor2Loc, d_btn,give_water_btn;
     EditText editText, editText2;
     TextView text1 = null;
-    float distance;
+    double distance;
+    int check;
     String meter;
     Location location1 = new Location("point 1");
     Location location2 = new Location("point 2");
@@ -63,7 +73,7 @@ public class Co2CalActivity extends AppCompatActivity {
         drawerLayout=findViewById(R.id.drawer_layout);
         //권한 설정
         //checkDangerousPermissions();
-
+        initMyAPI(BASE_URL);
         //객체 초기화
         editText = findViewById(R.id.editText);
         btnKor2Loc = findViewById(R.id.button2);
@@ -117,7 +127,7 @@ public class Co2CalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (((CheckBox)v).isChecked()) {
                     // TODO : CheckBox is checked.
-                    emission=distance*145;
+                    check=0;
                 }
             }
         });
@@ -126,7 +136,7 @@ public class Co2CalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (((CheckBox)v).isChecked()) {
                     // TODO : CheckBox is checked.
-                    emission=distance*145-distance*58;
+                    check=1;
                 }
             }
         });
@@ -135,24 +145,62 @@ public class Co2CalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (((CheckBox)v).isChecked()) {
                     // TODO : CheckBox is checked.
-                    emission=distance*145-distance*60;
+                    check=2;
                 }
             }
         });
 
-        give_water_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                distance=0;
-                text1.setText("이동 거리(km) : 0km");
-                Intent intent = new Intent(getApplicationContext(), MainTreeActivity.class);
-                intent.putExtra("emission", emission);
-                startActivity(intent);
+        give_water_btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                    Log.d(TAG, "POST");
+                    //RetrofitAPI postAPI = retrofit.create(RetrofitAPI.class);
+                    DataModels_Main data=new DataModels_Main(distance,check);
+               /* RetrofitAPI result=mMyAPI;
+                result.responsePost(distance, check).enqueue(new Callback<DataModels_Main>() {
+                    @Override
+                    public void onResponse(@NonNull Call<DataModels_Main> call, @NonNull Response<DataModels_Main> response) {
+                        if(response.isSuccessful()) {  // 조회성공
+                            DataModels_Main res = response.body();
+                            Log.d("총 누적 배출량 ", String.valueOf(res.getTotalReduction()));
+                            Log.d("트리 레벨", String.valueOf(res.getTreeLevel()));
+                            Log.d("트리 개수", String.valueOf(res.getTreeCount()));
+                            Log.d("레벨 별 배출량", String.valueOf(res.getLevelReduction()));
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<DataModels_Main> call, Throwable t) {
+
+                        t.printStackTrace();
+                    }
+                });*/
+
+                Call<MainData_response> postCall = mMyAPI.createPost(data);
+                postCall.enqueue(new Callback<MainData_response>() {
+                    @Override
+                    public void onResponse(Call<MainData_response> call, Response<MainData_response> response) {
+                        Log.d("retrofit", "Data fetch success");
+                        if (response.isSuccessful()) {
+                            MainData_response result=response.body();
+                            Log.d(TAG, "등록 완료");
+                            Intent intent =new Intent(getBaseContext(), MainTreeActivity.class);
+                            intent.putExtra("totalReduction", result.getTotalReduction());
+                            startActivity(intent);
+                        } else {
+                            Log.d(TAG, "Status Code : " + response.code());
+                            Log.d(TAG, response.errorBody().toString());
+                            Log.d(TAG, call.request().body().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MainData_response> call, Throwable t) {
+                        Log.d(TAG, "Fail msg : " + t.getMessage());
+                        Toast.makeText(getApplicationContext(), "FAIL", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
+
         });
-
-        initMyAPI(BASE_URL);
-
     }
 
     private void initMyAPI(String base_url) {
@@ -166,9 +214,8 @@ public class Co2CalActivity extends AppCompatActivity {
 
     }
 
-    public float getEmission() {
-        return emission;
-    }
+
+
 
     public void ClickMenu(View view){
         MainTreeActivity.openDrawer(drawerLayout);
@@ -187,6 +234,12 @@ public class Co2CalActivity extends AppCompatActivity {
 
     public void ClickAboutUs(View view){
         MainTreeActivity.redirectActivity(this,Co2CalActivity.class);
+    }
+    public void Neighborhood(View view){
+        MainTreeActivity.redirectActivity(this,NeighborhoodActivity.class);
+    }
+    public void Setting(View view){
+        MainTreeActivity.redirectActivity(this,SettingActivity.class);
     }
 
     protected void onPause(){

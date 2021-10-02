@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.tree.Main.MainTreeActivity
 import com.example.tree.login.APIS_login
 import com.example.tree.login.Login
 import com.example.tree.login.user_token
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                         (application as MasterApplication).createRetrofit()
 
                         Toast.makeText(activity, "로그인 하셨습니다", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(activity, NeighborhoodActivity::class.java))  //메인이랑 연결해야함. 우선 이웃화면으로 가도록 설정함.
+                        startActivity(Intent(activity, MainTreeActivity::class.java))  //메인이랑 연결해야함. 우선 이웃화면으로 가도록 설정함.
                         finish()
 
                     } else {

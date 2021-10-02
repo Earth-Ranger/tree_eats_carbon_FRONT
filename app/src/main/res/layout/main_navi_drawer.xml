@@ -3,28 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/setting_background">
 
 
     <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="지구레인저"
         android:textSize="20sp"
         android:textStyle="bold"
+
         android:textAlignment="center"
-        android:textColor="#636363"/>
+        android:fontFamily="@font/nanumbarunpenb"
+        android:textColor="#547D39"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="16dp"
         android:onClick="ClickLogo"
-        android:src="@drawable/leaf3"/>
+        android:src="@drawable/tree_logo"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp"
         android:background="#636363"/>
 
@@ -36,8 +40,8 @@
         android:padding="10dp"
         android:onClick="ClickHome">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="48dp"
             android:src="@drawable/leaf1" />
 
@@ -60,10 +64,10 @@
         android:gravity="center_vertical"
         android:onClick="ClickDashboard">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="48dp"
-            android:src="@drawable/leaf3"/>
+            android:src="@drawable/leaf4"/>
         <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,8 +86,8 @@
         android:gravity="center_vertical"
         android:onClick="ClickAboutUs">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="48dp"
             android:src="@drawable/leaf2"/>
         <TextView
@@ -93,6 +97,48 @@
         android:text="전체 랭킹 조회"
         android:padding="12dp"
         android:layout_marginStart="16dp"
+            android:fontFamily="@font/nanumbarunpenb"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:onClick="Neighborhood">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/leaf3"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="이웃 랭킹 조회"
+            android:padding="12dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/nanumbarunpenb"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:onClick="Setting">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_setting"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="설정"
+            android:padding="12dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/nanumbarunpenb"/>
     </LinearLayout>
 

@@ -1,10 +1,10 @@
-package com.kansun.earth_ranger
+package com.example.tree
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.kansun.earth_ranger.Main.MainTreeActivity
+import com.example.tree.Main.MainTreeActivity
 
 class allRankingActivity : AppCompatActivity() {
 
@@ -34,6 +34,13 @@ class allRankingActivity : AppCompatActivity() {
 
     fun ClickAboutUs(view: View?) {
         recreate()
+    }
+
+    fun Neighborhood(view: View?) {
+        MainTreeActivity.redirectActivity(this, NeighborhoodActivity::class.java)
+    }
+    fun Setting(view: View?) {
+        MainTreeActivity.redirectActivity(this, SettingActivity::class.java)
     }
 
     override fun onPause() {

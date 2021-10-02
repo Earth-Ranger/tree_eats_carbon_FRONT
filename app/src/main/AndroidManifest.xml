@@ -3,6 +3,19 @@
     package="com.example.tree">
 
 
+    <permission
+        android:name="com.example.tree.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" /> <!-- 권한 부여 설정 -->
+    <uses-permission android:name="com.example.tree.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".MasterApplication"
@@ -14,6 +27,21 @@
         android:theme="@style/Theme.Tree"
         android:usesCleartextTraffic="true">
 
+        <uses-library android:name="com.google.android.maps" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="개인 API 키" /> <!-- value는 API키 -->
+        <meta-data
+            android:name="com.google.android.gms.vision"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Co2CalActivity" />
+        <activity android:name=".allRankingActivity"/>
+        <activity android:name=".Main.MainTreeActivity"/>
         <activity android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>

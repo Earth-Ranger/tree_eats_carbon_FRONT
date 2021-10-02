@@ -1,12 +1,12 @@
 package com.example.tree
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -14,8 +14,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tree.Main.MainTreeActivity
 import com.example.tree.neighbor.*
 import kotlinx.android.synthetic.main.neighborhood_main.*
 import retrofit2.Call
@@ -24,7 +27,7 @@ import retrofit2.Response
 
 
 class NeighborhoodActivity : AppCompatActivity() {
-
+    var mDrawerLayout: DrawerLayout? = null
     var userId: Long = 401
     var name: String = ""
     var followerCount: Int = 0
@@ -40,7 +43,7 @@ class NeighborhoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.neighborhood_main)
-
+        mDrawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         // 이웃 추가 화면으로 이동
         neighborhood_add.setOnClickListener {
             startActivity(Intent(this, NeighborhoodAddActivity::class.java))
@@ -165,6 +168,38 @@ class NeighborhoodActivity : AppCompatActivity() {
     neighborhood_list.adapter = mAdapter
 
 }
+
+    fun ClickMenu(view: View?) {
+        MainTreeActivity.openDrawer(mDrawerLayout)
+    }
+
+    fun ClickLogo(view: View?) {
+        MainTreeActivity.closeDrawer(mDrawerLayout)
+    }
+
+    fun ClickHome(view: View?) {
+        MainTreeActivity.redirectActivity(this, MainTreeActivity::class.java)
+    }
+
+    fun ClickDashboard(view: View?) {
+        MainTreeActivity.redirectActivity(this, Co2CalActivity::class.java)
+    }
+
+    fun ClickAboutUs(view: View?) {
+        MainTreeActivity.redirectActivity(this, allRankingActivity::class.java)
+    }
+
+    fun Neighborhood(view: View?) {
+        recreate()
+    }
+    fun Setting(view: View?) {
+        MainTreeActivity.redirectActivity(this, SettingActivity::class.java)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MainTreeActivity.closeDrawer(mDrawerLayout)
+    }
 
 override fun onRestart() {
     super.onRestart()
@@ -429,6 +464,7 @@ class ViewAdapter(
 
     }
 }
+
 
 
 }

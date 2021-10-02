@@ -10,22 +10,19 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RetrofitAPI {
 
-    //distance
     @POST("carbon")
-    Call<Double> post_distance(@Body DataModels_Main distance);
+    Call<MainData_response> createPost(@Body DataModels_Main post);
 
-    @POST("carbon")
-    Call<Integer> post_transport();
 
-    @GET("carbon")
-    Call<String> get_tree();
+    @Headers({"Accept: application/json"})
+    @GET("plant")
+    Call<DataModels_Main> getPlant();
 
-    @GET("carbon")
-    Call<String> get_info();
 
 }

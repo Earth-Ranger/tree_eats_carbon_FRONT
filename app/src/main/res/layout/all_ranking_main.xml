@@ -78,8 +78,13 @@
 
             </ScrollView>
         </LinearLayout>
-
-
-
-</RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@color/white">
+        <include
+            layout="@layout/main_navi_drawer"/>
+    </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
