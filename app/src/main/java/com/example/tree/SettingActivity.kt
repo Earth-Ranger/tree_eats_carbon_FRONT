@@ -3,10 +3,13 @@ package com.example.tree
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import com.example.tree.Main.MainTreeActivity
 import com.example.tree.mypage.GetModel2
 import com.example.tree.mypage.PUTModel
 import kotlinx.android.synthetic.main.setting.*
@@ -17,10 +20,12 @@ import retrofit2.Response
 var name:String=""
 
 class SettingActivity  : AppCompatActivity() {
+
+    var drawerLayout: DrawerLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
-
+        drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
 
         SettingListener()
 
@@ -62,8 +67,6 @@ class SettingActivity  : AppCompatActivity() {
             }
 
         }
-
-
     }
 
     private fun SettingListener() {
@@ -94,5 +97,37 @@ class SettingActivity  : AppCompatActivity() {
             }
         })
 
+    }
+
+    fun ClickMenu(view: View?) {
+        MainTreeActivity.openDrawer(drawerLayout)
+    }
+
+    fun ClickLogo(view: View?) {
+        MainTreeActivity.closeDrawer(drawerLayout)
+    }
+
+    fun ClickHome(view: View?) {
+        MainTreeActivity.redirectActivity(this, MainTreeActivity::class.java)
+    }
+
+    fun ClickDashboard(view: View?) {
+        MainTreeActivity.redirectActivity(this, Co2CalActivity::class.java)
+    }
+
+    fun ClickAboutUs(view: View?) {
+        MainTreeActivity.redirectActivity(this, allRankingActivity::class.java)
+    }
+
+    fun Neighborhood(view: View?) {
+        MainTreeActivity.redirectActivity(this, NeighborhoodActivity::class.java)
+    }
+    fun Setting(view: View?) {
+        recreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MainTreeActivity.closeDrawer(drawerLayout)
     }
 }

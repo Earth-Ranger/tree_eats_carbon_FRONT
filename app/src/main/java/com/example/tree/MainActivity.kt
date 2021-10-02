@@ -1,3 +1,4 @@
+@file:JvmName("DemoUtils")
 package com.example.tree
 
 import android.app.Activity
@@ -17,8 +18,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+    var token1 : String=""
     //val api = APIS_login.create()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val user = response.body()
                         val token = user!!.token!!
+                        token1=token
                         saveUserToken(email, token, activity)
                         (application as MasterApplication).createRetrofit()
 
@@ -65,6 +67,11 @@ class MainActivity : AppCompatActivity() {
             })
         }
     }
+
+    fun getToken(): String {
+        return token1
+    }
+
 
     fun saveUserToken(email: String, token: String, activity: Activity) {
         val sp = activity.getSharedPreferences("login_sp", Context.MODE_PRIVATE)

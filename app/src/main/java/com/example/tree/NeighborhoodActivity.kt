@@ -147,19 +147,19 @@ class NeighborhoodActivity : AppCompatActivity() {
 
 
                             if(treeLevel==1){
-                                user_tree_image!!.setImageResource(R.drawable.tree_1)
+                                user_tree_image!!.setImageResource(R.drawable.img_1)
                             }
                             else if(treeLevel==2){
-                                user_tree_image!!.setImageResource(R.drawable.tree_2)
+                                user_tree_image!!.setImageResource(R.drawable.img_2)
                             }
                             else if(treeLevel==3){
-                                user_tree_image!!.setImageResource(R.drawable.tree_3)
+                                user_tree_image!!.setImageResource(R.drawable.img_3)
                             }
                             else if(treeLevel==4){
-                                user_tree_image!!.setImageResource(R.drawable.tree_4)
+                                user_tree_image!!.setImageResource(R.drawable.img_4)
                             }
                             else{
-                                user_tree_image!!.setImageResource(R.drawable.tree_5)
+                                user_tree_image!!.setImageResource(R.drawable.img_5)
                             }
 
                             builder.setView(v1)
@@ -319,19 +319,19 @@ class NeighborhoodActivity : AppCompatActivity() {
 
 
                             if(treeLevel==1){
-                                user_tree_image!!.setImageResource(R.drawable.tree_1)
+                                user_tree_image!!.setImageResource(R.drawable.img_1)
                             }
                             else if(treeLevel==2){
-                                user_tree_image!!.setImageResource(R.drawable.tree_2)
+                                user_tree_image!!.setImageResource(R.drawable.img_2)
                             }
                             else if(treeLevel==3){
-                                user_tree_image!!.setImageResource(R.drawable.tree_3)
+                                user_tree_image!!.setImageResource(R.drawable.img_3)
                             }
                             else if(treeLevel==4){
-                                user_tree_image!!.setImageResource(R.drawable.tree_4)
+                                user_tree_image!!.setImageResource(R.drawable.img_4)
                             }
                             else{
-                                user_tree_image!!.setImageResource(R.drawable.tree_5)
+                                user_tree_image!!.setImageResource(R.drawable.img_5)
                             }
 
                             builder.setView(v1)
