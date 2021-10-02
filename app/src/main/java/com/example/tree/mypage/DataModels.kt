@@ -6,3 +6,8 @@ data class GetModel2 (
     var follower : Int,
     var following : Int
 )
+
+data class PUTModel (
+    var code : Int,
+    var message : String
+)
