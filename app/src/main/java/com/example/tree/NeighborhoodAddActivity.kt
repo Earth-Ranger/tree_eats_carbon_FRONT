@@ -47,19 +47,15 @@ class NeighborhoodAddActivity : AppCompatActivity() {
                         val id = response.body()!!.id
                         val name = response.body()!!.name
                         val followerCount = response.body()!!.followerCount
-                        val followingCount = response.body()!!.followingCount
                         val treeCount = response.body()!!.treeCount
-                        val treeLevel = response.body()!!.treeLevel
 
                         Log.d("log", id.toString())
                         Log.d("log", name)
-                        Log.d("log", treeLevel.toString())
 
                         // 전달받은 유저 정보들
                         userId = id
                         neighborhood_nikname.setText(name)
                         neighborhood_tree_count.setText(treeCount.toString())
-                        neighborhood_tree_Level.setText(treeLevel.toString())
                         neighborhood_followerCount.setText(followerCount.toString())
 
 
@@ -86,17 +82,18 @@ class NeighborhoodAddActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<PostModel>, response: Response<PostModel>) {
                         Log.d("log", response.toString())
 
-                        Log.d("log", userId.toString())
+
 
                         if (response.body()!!.code == 201) {
+                            Log.d("log", userId.toString())
                             Toast.makeText(this@NeighborhoodAddActivity,
-                                response.body()!!.message,
+                                userId.toString()+"님이 팔로우되었습니다",
                                 Toast.LENGTH_LONG).show()
 
                             finish()
-                        } else {
+                        } else if(response.body()!!.code == 500) {
                             Toast.makeText(this@NeighborhoodAddActivity,
-                                response.body()!!.message,
+                                "이미 팔로우된 계정입니다",
                                 Toast.LENGTH_LONG).show()
                         }
                     }

@@ -60,6 +60,7 @@ class MasterApplication : Application() {
 
 
 
+
         service = retrofit.create(APIS_signup::class.java)
         service_login = retrofit.create(APIS_login::class.java)
         service_neighbor = retrofit.create(APIS_neighbor_add::class.java)

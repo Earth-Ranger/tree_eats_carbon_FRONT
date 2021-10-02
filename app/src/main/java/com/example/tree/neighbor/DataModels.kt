@@ -16,9 +16,7 @@ data class GetModel(
     var id : Long,
     var name: String,
     var followerCount: Int,
-    var followingCount: Int,
-    var treeCount: Int,
-    var treeLevel: Int
+    var treeCount: Int
 )
 
 
@@ -28,9 +26,7 @@ data class GetModel_list(
     var id : Long,
     var name: String,
     var followerCount: Int,
-    var followingCount: Int,
-    var treeCount: Int,
-    var treeLevel: Int
+    var treeCount: Int
 )
 class CheckGetModel(
     @SerializedName("followList")
@@ -45,3 +41,11 @@ data class PostModel(
     var message: String
 )
 
+// 이웃 트리 상세정보
+data class GetModel2(
+    var name: String,
+    var treeLevel:Int,
+    var treeCount: Int,
+    var followingCount: Int,
+    var followerCount: Int
+)

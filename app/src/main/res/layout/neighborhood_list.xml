@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/neighborhood_nikname_l"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -30,7 +30,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:id="@+id/neighborhood_tree_count_l"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/neighborhood_followerCount_l"
-            android:layout_width="60dp"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:shadowColor="#33000000"
@@ -61,11 +61,13 @@
             android:textStyle="bold" />
 
 
-        <TextView
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/delete_button"
+            android:layout_gravity="center"
             android:id="@+id/deletebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="삭제" />
+            android:layout_marginLeft="10dp" />
 
 
 
