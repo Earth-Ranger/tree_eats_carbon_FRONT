@@ -122,7 +122,6 @@ class NeighborhoodActivity : AppCompatActivity() {
 
                             // 화면 가져오기 (다이얼로그, 나무)
                             var v1 = layoutInflater.inflate(R.layout.neighborhood_tree_dialog, null)
-                            var v2 = layoutInflater.inflate(R.layout.tree_images, null)
 
                             var user_nickname: TextView? = v1.findViewById(R.id.user_nickname)
                             var user_tree_count_content: TextView? = v1.findViewById(R.id.user_tree_count_content)
@@ -131,12 +130,6 @@ class NeighborhoodActivity : AppCompatActivity() {
                             var followerCount_content: TextView? = v1.findViewById(R.id.followerCount_content)
                             var followingCount_content: TextView? =  v1.findViewById(R.id.followingCount_content)
 
-                            // 레벨에 따른 나무 이미지 가져오기
-                            var tree_image1: ImageView? =  v2.findViewById(R.id.first_level_tree)
-                            var tree_image2: ImageView? =  v2.findViewById(R.id.second_level_tree)
-                            var tree_image3: ImageView? =  v2.findViewById(R.id.third_level_tree)
-                            var tree_image4: ImageView? =  v2.findViewById(R.id.fourth_level_tree)
-                            var tree_image5: ImageView? =  v2.findViewById(R.id.fifth_level_tree)
 
 
                             val name = response.body()!!.name
@@ -176,7 +169,7 @@ class NeighborhoodActivity : AppCompatActivity() {
                         }
 
                         override fun onFailure(call: Call<GetModel2>, t: Throwable) {
-                            TODO("Not yet implemented")
+
                         }
                     })
             }
@@ -261,21 +254,14 @@ class NeighborhoodActivity : AppCompatActivity() {
                                     "삭제되었습니다",
                                     Toast.LENGTH_LONG).show()
 
-                                // 리사이클러뷰 초기화 할 필요 있음
                                 neighborList.NeighborList.clear()
                                 ViewListener()
                             } else {
                                 Toast.makeText(this@NeighborhoodActivity,
-                                    "삭제불가능",
+                                    "삭제할 수 없습니다",
                                     Toast.LENGTH_LONG).show() //나중에 삭제할것
                             }
 
-                            var user_nickname: TextView? = v1.findViewById(R.id.user_nickname)
-                            var user_tree_count_content: TextView? = v1.findViewById(R.id.user_tree_count_content)
-                            var user_tree_level_content: TextView? =  v1.findViewById(R.id.user_tree_level_content)
-                            var user_tree_image: ImageView? =  v1.findViewById(R.id.user_tree_image)
-                            var followerCount_content: TextView? = v1.findViewById(R.id.followerCount_content)
-                            var followingCount_content: TextView? =  v1.findViewById(R.id.followingCount_content)
 
                         }
 
@@ -293,13 +279,6 @@ class NeighborhoodActivity : AppCompatActivity() {
         mAdapter.setItemClickListener2(object : ViewAdapter.ItemClickListener2 {
             override fun onClick2(view: View, position: Int) {
 
-                            // 레벨에 따른 나무 이미지 가져오기
-                            var tree_image1: ImageView? =  v2.findViewById(R.id.first_level_tree)
-                            var tree_image2: ImageView? =  v2.findViewById(R.id.second_level_tree)
-                            var tree_image3: ImageView? =  v2.findViewById(R.id.third_level_tree)
-                            var tree_image4: ImageView? =  v2.findViewById(R.id.fourth_level_tree)
-                            var tree_image5: ImageView? =  v2.findViewById(R.id.fifth_level_tree)
-
                 userId = neighborList.NeighborList[position].id
 
                 (application as MasterApplication).service_neighbor_list.neighbortreeView(userId)
@@ -315,8 +294,13 @@ class NeighborhoodActivity : AppCompatActivity() {
 
                             // 화면 가져오기 (다이얼로그, 나무)
                             var v1 = layoutInflater.inflate(R.layout.neighborhood_tree_dialog, null)
-                            var v2 = layoutInflater.inflate(R.layout.tree_images, null)
 
+                            var user_nickname: TextView? = v1.findViewById(R.id.user_nickname)
+                            var user_tree_count_content: TextView? = v1.findViewById(R.id.user_tree_count_content)
+                            var user_tree_level_content: TextView? =  v1.findViewById(R.id.user_tree_level_content)
+                            var user_tree_image: ImageView? =  v1.findViewById(R.id.user_tree_image)
+                            var followerCount_content: TextView? = v1.findViewById(R.id.followerCount_content)
+                            var followingCount_content: TextView? =  v1.findViewById(R.id.followingCount_content)
 
 
 
@@ -357,13 +341,12 @@ class NeighborhoodActivity : AppCompatActivity() {
                         }
 
                         override fun onFailure(call: Call<GetModel2>, t: Throwable) {
-                            TODO("Not yet implemented")
+
                         }
                     })
             }
-
-
         })
+
 
 
         // 리사이클러뷰 설정
