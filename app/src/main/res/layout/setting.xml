@@ -65,7 +65,7 @@
         android:shadowDx="7.0"
         android:shadowDy="7.0"
         android:shadowColor="#33000000"
-        android:text="@string/password"
+        android:text="이메일"
         android:textColor="@color/green1" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,14 +77,53 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#9C9C9C"
             android:layout_marginLeft="40dp"/>
-        <ImageView
 
-            android:layout_width="30dp"
-            android:layout_gravity="center"
-            android:layout_height="30dp"
-            android:src="@drawable/pencil" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="follower : "
+            android:textColor="@color/green2"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/followerCount_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="follower"
+            android:textColor="@color/green2"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="following : "
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/green2"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/followingCount_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="following"
+            android:textColor="@color/green2"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <TextView
         android:id="@+id/logout_button"
         android:layout_width="wrap_content"
