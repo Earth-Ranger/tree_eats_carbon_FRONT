@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
                         Toast.makeText(activity, "로그인 하셨습니다", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(activity, NeighborhoodActivity::class.java))  //메인이랑 연결해야함. 우선 이웃화면으로 가도록 설정함.
+                        finish()
 
                     } else {
                         Toast.makeText(activity, "로그인에 실패했습니다", Toast.LENGTH_LONG).show()

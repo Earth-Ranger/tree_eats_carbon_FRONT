@@ -9,3 +9,6 @@ data class Signup (
     var password : String? = null
 )
 
+data class CheckGetModel2 (
+    var message : Boolean? = null
+)

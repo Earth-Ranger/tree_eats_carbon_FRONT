@@ -50,7 +50,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:background="@null" />
+                android:background="@null"
+                android:hint="추가할 닉네임을 입력하세요" />
         </FrameLayout>
 
         <ImageView
@@ -78,7 +79,7 @@
         android:elevation="15dp">
 
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
@@ -86,23 +87,45 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
-            android:text="@string/tree_count"
-            android:textColor="@color/white" />
+            android:text="나무 수"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="나무 레벨"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="팔로워"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/corner"
-        android:elevation="15dp">
+        android:elevation="15dp"
+        android:orientation="vertical">
 
+        <!--
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -114,8 +137,90 @@
                 android:layout_height="match_parent" />
 
         </ScrollView>
+        -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/corner2"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/neighborhood_nikname"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:shadowColor="#33000000"
+                android:shadowDx="7.0"
+                android:shadowDy="7.0"
+                android:shadowRadius="7.0"
+                android:text="상명대 총잡이"
+                android:textColor="@color/green1"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/neighborhood_tree_count"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:shadowColor="#33000000"
+                android:shadowDx="7.0"
+                android:shadowDy="7.0"
+                android:shadowRadius="7.0"
+                android:text="수"
+                android:textColor="@color/green1"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/neighborhood_tree_Level"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:shadowColor="#33000000"
+                android:shadowDx="7.0"
+                android:shadowDy="7.0"
+                android:shadowRadius="7.0"
+                android:text="수"
+                android:textColor="@color/green1"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/neighborhood_followerCount"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:shadowColor="#33000000"
+                android:shadowDx="7.0"
+                android:shadowDy="7.0"
+                android:shadowRadius="7.0"
+                android:text="상"
+                android:textColor="@color/green1"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/Add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/green3"
+        android:elevation="15dp"
+        android:text="추가하기"
+        android:textColor="@color/green1" />
 
 </LinearLayout>
