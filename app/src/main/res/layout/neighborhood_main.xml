@@ -23,10 +23,11 @@
 
 
             <TextView
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="right"
+                android:layout_marginRight="70dp"
                 android:text="@string/add_neighbor"
                 android:textColor="@color/login_background" />
 
@@ -35,6 +36,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="-70dp"
                 android:src="@drawable/plus2" />
 
 
@@ -45,6 +47,7 @@
             android:id="@+id/text_neighbor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_below="@+id/nav_head"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="0dp"

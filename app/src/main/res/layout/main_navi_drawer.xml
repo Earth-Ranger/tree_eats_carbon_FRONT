@@ -94,7 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="전체 랭킹 조회"
+        android:text="랭킹 조회"
         android:padding="12dp"
         android:layout_marginStart="16dp"
             android:fontFamily="@font/nanumbarunpenb"/>
@@ -115,7 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="이웃 랭킹 조회"
+            android:text="이웃 조회"
             android:padding="12dp"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/nanumbarunpenb"/>
