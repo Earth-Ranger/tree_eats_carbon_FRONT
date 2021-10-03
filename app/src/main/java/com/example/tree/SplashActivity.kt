@@ -3,7 +3,7 @@ package com.example.tree
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tree.Main.MainTreeActivity
+import com.example.tree.MainTreeActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

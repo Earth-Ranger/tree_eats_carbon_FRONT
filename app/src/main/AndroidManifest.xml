@@ -41,7 +41,7 @@
 
         <activity android:name=".Co2CalActivity" />
         <activity android:name=".allRankingActivity"/>
-        <activity android:name=".Main.MainTreeActivity"/>
+        <activity android:name=".MainTreeActivity"/>
         <activity android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>

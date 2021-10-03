@@ -1,7 +1,8 @@
-package com.example.tree.Main
+package com.example.tree
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -16,8 +17,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.tree.*
+import com.example.tree.Main.Get_Response
+import com.example.tree.Main.RetrofitAPI
+import com.example.tree.Main.TreeDTO
 import com.example.tree.neighbor.CheckGetModel
 import com.example.tree.neighbor.nlist
+import kotlinx.android.synthetic.main.activity_maintree.*
 import kotlinx.android.synthetic.main.neighborhood_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,9 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainTreeActivity : AppCompatActivity() {
     //드로우바
     var drawerLayout: DrawerLayout? = null
-    var retrofit: Retrofit? = null
-    private val BASE_URL = "http://180.230.121.23/"
-    private var mMyAPI: RetrofitAPI? = null
 
     //레벨업바
     var progressBar: ProgressBar? = null
@@ -46,11 +48,12 @@ class MainTreeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maintree)
         drawerLayout = findViewById(R.id.drawer_layout)
-        textView1 = findViewById<View>(R.id.main_text2) as TextView
         textView2 = findViewById<View>(R.id.textView2) as TextView
         progressBar = findViewById<View>(R.id.progressBar) as ProgressBar
         textView = findViewById<View>(R.id.level_num) as TextView
         level_img = findViewById<View>(R.id.tree_1) as ImageView
+        //dia_text = findViewById<View>(R.id.tree_tip_text) as TextView
+
 
         (application as MasterApplication).service_tree.get_plant()
             .enqueue(object :
@@ -71,6 +74,12 @@ class MainTreeActivity : AppCompatActivity() {
                         Log.d("log", carbon.toString())
                         Log.d("log", treeCount.toString())
                         Log.d("log", levelReduction.toString())
+                        textView2?.setText("$treeCount 그루")
+                        textView2?.setText("$treeCount 그루")
+                        today_Co2.setText("오늘 줄인 Co2 배출량 : $carbon")
+                        calEmission(treeLevel, carbon)
+                        level_text.setText("$treeLevel 단계")
+
                     }
                 }
 
@@ -80,28 +89,47 @@ class MainTreeActivity : AppCompatActivity() {
                     Log.d("log", "fail")
                 }
             })
-        /*mMyAPI.getPlant().enqueue(new Callback<DataModels_Main>() {
-            @Override
-            public void onResponse(Call<DataModels_Main> call, Response<DataModels_Main> response) {
-                if (response.isSuccessful()) {  // 조회성공
-                    DataModels_Main res = response.body();
-                    Intent intent=getIntent();
-                    double myExp=intent.getExtras().getDouble("totalReduction");
-                    //Log.d("총 누적 배출량 ", String.valueOf(res.getCarbonMap()));
-                    level=res.getTreeLevel();
-                    textView2.setText(res.getTreeCount());
-                    textView.setText(level+ " 단계 - 필요경험치 : " + " 현재경험치 : " + myExp);
-                    Log.d(TAG, "등록 완료");
-                } else {
-                    Log.d(TAG, "Status Code : " + response.code());
-                }
-            }
 
-            @Override
-            public void onFailure(Call<DataModels_Main> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });*/
+        tip_btn.setOnClickListener(View.OnClickListener {
+
+            (application as MasterApplication).service_tree.get_TreeTip()
+                .enqueue(object :
+                    Callback<Get_Response> {
+                    override fun onResponse(
+                        call: Call<Get_Response>,
+                        response: Response<Get_Response>,
+                    ) {
+                        Log.d("log", response.toString())
+
+                        var builder = AlertDialog.Builder(this@MainTreeActivity)
+
+                        // 화면 가져오기 (다이얼로그, 나무)
+                        var v1 = layoutInflater.inflate(R.layout.treeinfo_dialog, null)
+
+                        var tree: TextView? = v1.findViewById(R.id.tree_tip_num)
+                        var tip: TextView? = v1.findViewById(R.id.tree_tip_text)
+
+
+                        val info = response.body()!!.info
+                        val treeNum = response.body()!!.tree
+
+                        // 세부정보 표시
+                        tree?.setText("총 $treeNum  그루 심을 수 있었네요!(소나무 기준)")
+                        tip?.setText(info)
+
+                        builder.setView(v1)
+                        builder.show()
+
+
+                    }
+
+                    override fun onFailure(call: Call<Get_Response>, t: Throwable) {
+                        // 실패
+                        Log.d("log", t.message.toString())
+                        Log.d("log", "fail")
+                    }
+                })
+        })
     }
 
     //배출량 누적으로 레벨업
@@ -143,48 +171,26 @@ class MainTreeActivity : AppCompatActivity() {
         closeDrawer(drawerLayout)
     }
 
-    fun calEmission() {
-        textView!!.text = "$level 단계 - 필요경험치 : $maxExp 현재경험치 : $myExp"
-        /*myExp=emission;
-        maxExp  = 1000 + 30 * (level - 1) * (level + 5);
+    fun calEmission(level : Int, myExp : Double) {
+        var nextLevel = level +1
+        textView?.setText("$level 단계 >>> 다음 단계 : $nextLevel 단계")
+        maxExp  = 10000* level;
 
-        progressBar.setMax(maxExp);
-        progressBar.setProgress((int) myExp);
+        progressBar?.setMax(maxExp);
+        progressBar?.setProgress(myExp.toInt());
 
-        switch(maxExp){
-            case 1000:
-                level_img.setImageResource(R.drawable.img_1);
-                textView1.setText(level+" 단계");
-                break;
-            case 3100:
-                level_img.setImageResource(R.drawable.img_2);
-                textView1.setText(level+" 단계");
-                break;
-            case 5800:
-                level_img.setImageResource(R.drawable.img_3);
-                textView1.setText(level+" 단계");
-                break;
-            case 9100:
-                level_img.setImageResource(R.drawable.img_4);
-                textView1.setText(level+" 단계");
-                break;
-            case 13000:
-                level_img.setImageResource(R.drawable.img_5);
-                textView1.setText(level+" 단계");
-                break;
+        when(maxExp){
+            10000->
+                level_img?.setImageResource(R.drawable.img_1)
+            20000->
+                level_img?.setImageResource(R.drawable.img_2)
+            30000->
+                level_img?.setImageResource(R.drawable.img_3)
+            40000->
+                level_img?.setImageResource(R.drawable.img_4)
+            50000->
+                level_img?.setImageResource(R.drawable.img_5);
         }
-
-        if(myExp >= maxExp) {
-            level++;
-            myExp = myExp- maxExp;
-        }
-        if(level==6){
-            level=1;
-            myExp=0;
-            maxExp=0;
-            account++;
-            textView2.setText(account+"그루");
-        }*/
     }
 
     //------------------권한 설정 시작------------------------

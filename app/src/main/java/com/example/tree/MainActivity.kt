@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.tree.Main.MainTreeActivity
+import com.example.tree.MainTreeActivity
 import com.example.tree.login.APIS_login
 import com.example.tree.login.Login
 import com.example.tree.login.user_token

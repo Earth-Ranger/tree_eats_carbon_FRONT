@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/setting_background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="🌳 누적 탄소량으로 필요한 나무 수"
+                android:textColor="#547D39"
+                android:textSize="23dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tree_tip_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+
+                android:text="총 0그루가 필요해요! (소나무 기준)"
+                android:textSize="17dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:background="#636363" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="💡 탄소줄이는 TIP!"
+                android:textColor="#547D39"
+                android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/tree_tip_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="여름철에는 25~28도, 겨울철에는 18~20도 정도만 유지하면 연간 탄소배출 166.8㎏을 줄일 수 있어요! "
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

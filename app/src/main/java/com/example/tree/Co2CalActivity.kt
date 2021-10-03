@@ -14,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.tree.Main.*
-import com.example.tree.Main.MainTreeActivity.Companion.closeDrawer
-import com.example.tree.Main.MainTreeActivity.Companion.openDrawer
-import com.example.tree.Main.MainTreeActivity.Companion.redirectActivity
+import com.example.tree.MainTreeActivity.Companion.closeDrawer
+import com.example.tree.MainTreeActivity.Companion.openDrawer
+import com.example.tree.MainTreeActivity.Companion.redirectActivity
 import com.example.tree.neighbor.DeleteModel
 import com.google.android.gms.maps.model.LatLng
 import retrofit2.Call
@@ -106,24 +106,6 @@ class Co2CalActivity : AppCompatActivity() {
             Log.d(TAG, "POST")
             //RetrofitAPI postAPI = retrofit.create(RetrofitAPI.class);
             val data = Data_Request(distance, check)
-            /* RetrofitAPI result=mMyAPI;
-                    result.responsePost(distance, check).enqueue(new Callback<DataModels_Main>() {
-                        @Override
-                        public void onResponse(@NonNull Call<DataModels_Main> call, @NonNull Response<DataModels_Main> response) {
-                            if(response.isSuccessful()) {  // 조회성공
-                                DataModels_Main res = response.body();
-                                Log.d("총 누적 배출량 ", String.valueOf(res.getTotalReduction()));
-                                Log.d("트리 레벨", String.valueOf(res.getTreeLevel()));
-                                Log.d("트리 개수", String.valueOf(res.getTreeCount()));
-                                Log.d("레벨 별 배출량", String.valueOf(res.getLevelReduction()));
-                            }
-                        }
-                        @Override
-                        public void onFailure(Call<DataModels_Main> call, Throwable t) {
-    
-                            t.printStackTrace();
-                        }
-                    });*/
             (application as MasterApplication).service_tree.createPost(data)
                 .enqueue(object : Callback<Data_Response> {
                 override fun onResponse(

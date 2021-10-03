@@ -72,9 +72,11 @@
                 android:fillViewport="true">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/neighborhood_list"
+                    android:id="@+id/all_list"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"/>
 
             </ScrollView>
         </LinearLayout>

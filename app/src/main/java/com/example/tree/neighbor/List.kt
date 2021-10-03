@@ -10,3 +10,7 @@ class neighborList {
         NeighborList.add(list)
     }
 }
+
+class allList{
+    val AllList = ArrayList<nlist>()
+}

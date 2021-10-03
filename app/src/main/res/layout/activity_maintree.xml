@@ -55,14 +55,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView" />
 
+
             <RelativeLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="198dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="-4dp"
-                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="-3dp"
+                android:layout_marginBottom="52dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/main_backgorund"
@@ -97,9 +98,35 @@
                     android:text="현재 경험치"
                     android:textColor="@color/white" />
 
+                <TextView
+                    android:id="@+id/today_co2_text"
+                    android:layout_width="287dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/level_num"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="67dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="오늘 내가 줄인 이산화탄소 배출량"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/today_Co2"
+                    android:layout_width="287dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/today_co2_text"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="63dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="Co2 : 3840g"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
 
             </RelativeLayout>
-
 
             <TextView
                 android:id="@+id/main_text1"
@@ -108,58 +135,70 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="170dp"
+                android:layout_marginStart="164dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="145dp"
+                android:layout_marginEnd="151dp"
                 android:fontFamily="@font/nanumbarunpenr"
                 android:text="트리 단계"
+                android:textAlignment="center"
                 android:textColor="#547D39"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+
+            <LinearLayout
                 android:id="@+id/main_text2"
-                android:layout_width="135dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_below="@+id/main_text1"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical">
 
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="126dp"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:text="1 단계"
-                android:textColor="#547D39"
-                android:textSize="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/main_text1" />
+                <ImageButton
+                    android:id="@+id/tip_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/check_treeinfo"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="10dp"/>
 
-            <RelativeLayout
+                <TextView
+                    android:layout_width="157dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/level_text"
+                    android:layout_below="@+id/main_text1"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="126dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="1 단계"
+                    android:textAlignment="center"
+                    android:textColor="#547D39"
+                    android:textSize="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/main_text1" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/tree_1"
                 android:layout_width="match_parent"
-                android:layout_height="279dp"
+                android:layout_height="447dp"
                 android:layout_above="@+id/relativeLayout"
                 android:layout_below="@+id/main_text2"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginBottom="69dp">
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="-1dp"
+                android:layout_marginBottom="-131dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_1" />
 
-                <ImageView
-                    android:id="@+id/tree_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="148dp"
-                    android:layout_marginBottom="-4dp"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/img_1" />
-            </RelativeLayout>
 
         </RelativeLayout>
     </RelativeLayout>

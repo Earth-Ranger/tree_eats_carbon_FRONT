@@ -18,7 +18,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tree.Main.MainTreeActivity
+import com.example.tree.MainTreeActivity
 import com.example.tree.neighbor.*
 import kotlinx.android.synthetic.main.neighborhood_main.*
 import retrofit2.Call

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.tree.Main.MainTreeActivity
+import com.example.tree.MainTreeActivity
 import com.example.tree.mypage.GetModel2
 import com.example.tree.mypage.PUTModel
 import kotlinx.android.synthetic.main.setting.*
@@ -79,9 +79,9 @@ class SettingActivity  : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var user=response.body()
                         name=user!!.name
-                        var email=user!!.email
-                        var follower=user!!.follower
-                        var following=user!!.following
+                        var email= user.email
+                        var follower= user.follower
+                        var following= user.following
 
                         change_nickname_input.setText(name)
                         change_email_input.setText(email)

@@ -78,14 +78,12 @@
 
                 <Button
                     android:id="@+id/d_btn"
-                    android:layout_width="87dp"
+                    android:layout_width="100dp"
                     android:layout_height="36dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="145dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginEnd="53dp"
-                    android:layout_toEndOf="@+id/distance"
+                    android:layout_marginEnd="45dp"
                     android:background="@drawable/button_style"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:text="거리확인"
@@ -112,13 +110,13 @@
 
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="87dp"
+                    android:layout_width="100dp"
                     android:layout_height="36dp"
                     android:layout_below="@+id/d_btn"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="17dp"
-                    android:layout_marginEnd="53dp"
+                    android:layout_marginEnd="45dp"
                     android:layout_marginRight="53dp"
                     android:background="@drawable/button_style"
                     android:fontFamily="@font/nanumbarunpenb"
@@ -146,13 +144,13 @@
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="87dp"
+                    android:layout_width="100dp"
                     android:layout_height="36dp"
                     android:layout_below="@+id/button2"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="18dp"
-                    android:layout_marginEnd="52dp"
+                    android:layout_marginEnd="45dp"
                     android:layout_marginRight="52dp"
                     android:background="@drawable/button_style"
                     android:fontFamily="@font/nanumbarunpenb"
@@ -220,15 +218,16 @@
 
                 <Button
                     android:id="@+id/give_water_btn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="144dp"
-                    android:layout_marginEnd="146dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginBottom="0dp"
                     android:background="#00ff0000"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:text="물 주기"
+                    android:textAlignment="center"
                     android:textColor="#244310"
                     android:textSize="27dp" />
             </RelativeLayout>
